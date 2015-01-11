@@ -7,7 +7,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
     public class AlarmTest
     {
         [Test]
-        public void Foo()
+        public void NewAlarmHasAlarmOff()
         {
             Alarm alarm = new Alarm();
             Assert.AreEqual(false, alarm.AlarmOn);
