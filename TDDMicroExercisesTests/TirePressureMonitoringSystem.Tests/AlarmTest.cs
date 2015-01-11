@@ -22,7 +22,6 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
         }
 
-
         [Test]
         public void AlarmAcceptsASensor()
         {
@@ -30,12 +29,12 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         }
 
         [Test]
-        public void AlarmIsOffWhenPressureIs18()
+        public void AlarmIsOnWhenPressureIs22()
         {
             var alarm = new Alarm(new TestSensor());
             alarm.Check();
 
-            Assert.IsFalse(alarm.AlarmOn);
+            Assert.IsTrue(alarm.AlarmOn);
         }
     }
 
@@ -44,7 +43,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
         public double PopNextPressurePsiValue()
         {
-            return 18;
+            return 22; ;
         }
     }
 }
