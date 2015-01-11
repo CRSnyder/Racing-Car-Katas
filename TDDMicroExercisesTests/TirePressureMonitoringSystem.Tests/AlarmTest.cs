@@ -28,10 +28,15 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
             var alarm = new Alarm(new Sensor());
         }
 
-        [Test]
-        public void AlarmIsOnWhenPressureIs22()
+        [TestCase(22)]
+        [TestCase(24)]
+        [TestCase(28)]
+        [TestCase(15)]
+        [TestCase(12)]
+        [TestCase(11)]
+        public void AlarmIsOnWhenPressureIsOver21OrUnder17(double pressure)
         {
-            var alarm = new Alarm(new TestSensor());
+            var alarm = new Alarm(new TestSensor(pressure));
             alarm.Check();
 
             Assert.IsTrue(alarm.AlarmOn);
@@ -40,10 +45,16 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
     public class TestSensor : ISensor  
     {
+        private double pressure;
+
+        public TestSensor(double pressure)
+        {
+            this.pressure = pressure;
+        }
 
         public double PopNextPressurePsiValue()
         {
-            return 22; ;
+            return this.pressure; 
         }
     }
 }
