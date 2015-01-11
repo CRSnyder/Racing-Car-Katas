@@ -23,7 +23,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         {
             double psiPressureValue = _sensor.PopNextPressurePsiValue();
 
-            if (psiPressureValue < LowPressureTreshold || HighPressureTreshold < psiPressureValue)
+            if (PressureIsOutsideOfSafeRange(psiPressureValue))
             {
                 _alarmOn = true;
                 _alarmCount += 1;
@@ -31,6 +31,10 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
         }
 
+        private static bool PressureIsOutsideOfSafeRange(double psiPressureValue)
+        {
+            return psiPressureValue < LowPressureTreshold || HighPressureTreshold < psiPressureValue;
+        }
         public bool AlarmOn
         {
             get { return _alarmOn; }
