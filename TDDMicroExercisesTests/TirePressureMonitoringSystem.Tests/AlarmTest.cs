@@ -41,6 +41,18 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
             Assert.IsTrue(alarm.AlarmOn);
         }
+
+        [TestCase(18)]
+        [TestCase(17)]
+        [TestCase(21)]
+        public void AlarmIsOffWhenPressureIsBetween17And21Inclusive(int pressure)
+        {
+            var alarm = new Alarm(new TestSensor(pressure));
+            alarm.Check();
+
+            Assert.IsFalse(alarm.AlarmOn);
+        }
+
     }
 
     public class TestSensor : ISensor  
