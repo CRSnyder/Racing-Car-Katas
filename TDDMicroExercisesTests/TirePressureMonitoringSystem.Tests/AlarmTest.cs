@@ -23,23 +23,6 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         }
 
         [Test]
-        public void CheckTurnsAlarmOn()
-        {
-            var alarm = new Alarm();
-            alarm.Check();
-            Assert.IsTrue(alarm.AlarmOn);
-        }
-
-        //[Test]
-        //public void AlarmIsOffIfPressureIs18()
-        //{
-        //    var alarm = new Alarm();
-        //    alarm.Check();
-
-        //    Assert.IsFalse(alarm.AlarmOn);
-        //}
-
-        [Test]
         public void CheckReturnsDouble()
         {
             var alarm = new Alarm();
@@ -53,5 +36,14 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         {
             var alarm = new Alarm(new Sensor());
         }
+
+        //[Test]
+        //public void AlarmIsOffIfPressureIs18()
+        //{
+        //    var alarm = new Alarm(new Sensor());
+        //    alarm.Check();
+
+        //    Assert.IsFalse(alarm.AlarmOn);
+        //}
     }
 }
