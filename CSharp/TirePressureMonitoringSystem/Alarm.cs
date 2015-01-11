@@ -20,6 +20,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
                 _alarmOn = true;
                 _alarmCount += 1;
             }
+            _alarmOn = true;
         }
 
         public bool AlarmOn
