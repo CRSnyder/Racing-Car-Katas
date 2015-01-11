@@ -21,5 +21,13 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
 
         }
+        
+        [Test]
+        public void CheckTurnsAlarmOn()
+        {
+            var alarm = new Alarm();
+            alarm.Check();
+            Assert.IsTrue(alarm.AlarmOn);
+        }
     }
 }
