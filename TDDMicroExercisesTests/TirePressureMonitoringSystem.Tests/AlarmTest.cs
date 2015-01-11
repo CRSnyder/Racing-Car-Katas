@@ -12,5 +12,14 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
             Alarm alarm = new Alarm();
             Assert.AreEqual(false, alarm.AlarmOn);
         }
+
+        [Test]
+        public void CheckDoesNotRaiseAnException()
+        {
+            var alarm = new Alarm();
+            alarm.Check();
+
+
+        }
     }
 }
