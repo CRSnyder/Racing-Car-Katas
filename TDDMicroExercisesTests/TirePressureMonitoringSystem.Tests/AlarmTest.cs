@@ -22,14 +22,6 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
         }
 
-        [Test]
-        public void CheckReturnsDouble()
-        {
-            var alarm = new Alarm();
-            var result = alarm.Check();
-
-            Assert.IsInstanceOf<double>(result);
-        }
 
         [Test]
         public void AlarmAcceptsASensor()

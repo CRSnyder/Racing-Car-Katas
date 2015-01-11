@@ -19,7 +19,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
             _sensor = sensor;
         }
 
-        public double Check()
+        public void Check()
         {
             double psiPressureValue = _sensor.PopNextPressurePsiValue();
 
@@ -29,7 +29,6 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
                 _alarmCount += 1;
             }
 
-            return 0;
         }
 
         public bool AlarmOn
