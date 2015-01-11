@@ -47,5 +47,11 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
             Assert.IsInstanceOf<double>(result);
         }
+
+        [Test]
+        public void AlarmAcceptsASensor()
+        {
+            var alarm = new Alarm(new Sensor());
+        }
     }
 }

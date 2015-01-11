@@ -11,6 +11,18 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
         private long _alarmCount = 0;
 
 
+        public Alarm()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Alarm"/> class.
+        /// </summary>
+        /// <param name="sensor"></param>
+        public Alarm(Sensor sensor)
+        {
+            _sensor = sensor;
+        }
         public double Check()
         {
             double psiPressureValue = _sensor.PopNextPressurePsiValue();
