@@ -3,7 +3,7 @@ using System.Web;
 
 namespace TDDMicroExercises.UnicodeFileToHtmTextConverter
 {
-    public class FileOpener
+    public class FileOpener : IFileOpener
     {
         public StreamReader OpenText(string fileName)
         {

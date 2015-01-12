@@ -55,6 +55,8 @@
     <Compile Include="TurnTicketDispenser\TurnTicket.cs" />
     <Compile Include="UnicodeFileToHtmTextConverter\FileOpener.cs" />
     <Compile Include="UnicodeFileToHtmTextConverter\HtmlEncoder.cs" />
+    <Compile Include="UnicodeFileToHtmTextConverter\IFileOpener.cs" />
+    <Compile Include="UnicodeFileToHtmTextConverter\IHtmlEncoder.cs" />
     <Compile Include="UnicodeFileToHtmTextConverter\UnicodeFileToHtmTextConverter.cs" />
   </ItemGroup>
   <ItemGroup>

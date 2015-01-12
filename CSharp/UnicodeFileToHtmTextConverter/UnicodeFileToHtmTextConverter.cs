@@ -5,20 +5,25 @@ namespace TDDMicroExercises.UnicodeFileToHtmTextConverter
 {
     public class UnicodeFileToHtmTextConverter
     {
-        private string _fullFilenameWithPath;
-
-
+        private string fullFilenameWithPath;
+        private IHtmlEncoder htmlEncoder;
+        private IFileOpener fileOpener;
         public UnicodeFileToHtmTextConverter(string fullFilenameWithPath)
+            : this(fullFilenameWithPath, new FileOpener(), new HtmlEncoder())
         {
-            _fullFilenameWithPath = fullFilenameWithPath;
+        }
+
+        public UnicodeFileToHtmTextConverter(string fullFilenameWithPath, IFileOpener fileOpener, IHtmlEncoder htmlEncoder)
+        {
+            this.fullFilenameWithPath = fullFilenameWithPath;
+            this.htmlEncoder = htmlEncoder;
+            this.fileOpener = fileOpener;
         }
 
         public string ConvertToHtml()
         {
-            var fileOpener = new FileOpener();
-            var htmlEncoder = new HtmlEncoder();
 
-            using (TextReader unicodeFileStream = fileOpener.OpenText(_fullFilenameWithPath))
+            using (TextReader unicodeFileStream = fileOpener.OpenText(this.fullFilenameWithPath))
             {
                 string html = string.Empty;
 
