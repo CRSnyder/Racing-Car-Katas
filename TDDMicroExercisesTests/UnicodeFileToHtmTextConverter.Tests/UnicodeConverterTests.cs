@@ -26,5 +26,7 @@ namespace TDDMicroExercisesTests.UnicodeConverter.Tests
 
             StringAssert.AreEqualIgnoringCase(expected, actual);
         }
+
+
     }
 }

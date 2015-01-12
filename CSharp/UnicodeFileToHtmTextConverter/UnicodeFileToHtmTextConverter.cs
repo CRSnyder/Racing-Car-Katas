@@ -15,14 +15,17 @@ namespace TDDMicroExercises.UnicodeFileToHtmTextConverter
 
         public string ConvertToHtml()
         {
-            using (TextReader unicodeFileStream = File.OpenText(_fullFilenameWithPath))
+            var fileOpener = new FileOpener();
+            var htmlEncoder = new HtmlEncoder();
+
+            using (TextReader unicodeFileStream = fileOpener.OpenText(_fullFilenameWithPath))
             {
                 string html = string.Empty;
 
                 string line = unicodeFileStream.ReadLine();
                 while (line != null)
                 {
-                    html += HttpUtility.HtmlEncode(line);
+                    html += htmlEncoder.HtmlEncode(line);
                     html += "<br />";
                     line = unicodeFileStream.ReadLine();
                 }
