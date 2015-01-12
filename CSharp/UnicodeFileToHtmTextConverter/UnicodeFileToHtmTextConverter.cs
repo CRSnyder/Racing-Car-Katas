@@ -22,21 +22,24 @@ namespace TDDMicroExercises.UnicodeFileToHtmTextConverter
 
         public string ConvertToHtml()
         {
-
-            using (TextReader unicodeFileStream = fileOpener.OpenText(this.fullFilenameWithPath))
+            using (var unicodeFileStream = fileOpener.OpenText(this.fullFilenameWithPath))
             {
-                string html = string.Empty;
-
-                string line = unicodeFileStream.ReadLine();
-                while (line != null)
-                {
-                    html += htmlEncoder.HtmlEncode(line);
-                    html += "<br />";
-                    line = unicodeFileStream.ReadLine();
-                }
-
-                return html;
+                return GetHtml(unicodeFileStream);
             }
+        }
+        private string GetHtml(TextReader unicodeFileStream)
+        {
+            const string HTMLBR = "<br />";
+            string html = string.Empty;
+
+            string line = unicodeFileStream.ReadLine();
+            while (line != null)
+            {
+                html += htmlEncoder.HtmlEncode(line);
+                html += HTMLBR;
+                line = unicodeFileStream.ReadLine();
+            }
+            return html;
         }
     }
 }
