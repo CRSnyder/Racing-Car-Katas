@@ -1,5 +1,6 @@
 
 using NUnit.Framework;
+using System;
 
 namespace TDDMicroExercises.TirePressureMonitoringSystem
 {
@@ -53,11 +54,22 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
             Assert.IsFalse(alarm.AlarmOn);
         }
 
+        [Test]
+        public void CheckGetsTheNextPressureReadingFromTheSensor()
+        {
+            TestSensor testSensor = new TestSensor(0);
+            var alarm = new Alarm(testSensor);
+            alarm.Check();
+
+            Assert.AreEqual(1, testSensor.PopNextPressureCalled);
+        }
     }
 
     public class TestSensor : ISensor  
     {
         private double pressure;
+
+        public int PopNextPressureCalled { get; private set; }
 
         public TestSensor(double pressure)
         {
@@ -66,6 +78,7 @@ namespace TDDMicroExercises.TirePressureMonitoringSystem
 
         public double PopNextPressurePsiValue()
         {
+            PopNextPressureCalled++;
             return this.pressure; 
         }
     }
